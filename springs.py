@@ -61,16 +61,22 @@ def spring(g):
 
 		return ((E_x - E) / eps, (E_y - E) / eps)
 
-	def grad_step(m):
-		eps = 0.0001
+	def grad_step(m, max_iters = 100, learning_rate = 0.05, momentum = 0.8):
 		
-		
-		gr = grad(m)
-		while((gr[0] ** 2 + gr[1] ** 2) ** 0.5 > 0.05):
-			coords[m][0] -= eps * gr[0]
-			coords[m][1] -= eps * gr[1]
-			gr = grad(m)
+		iters = 0
+		last_step = [0, 0]
+		gr = [10, 10]
 
+		while((gr[0] ** 2 + gr[1] ** 2) ** 0.5 > 0.05 and max_iters > iters):
+			gr = grad(m)
+		
+			coords[m][0] += -learning_rate * gr[0] + momentum * last_step[0]
+			coords[m][1] += -learning_rate * gr[1] + momentum * last_step[1]
+		
+			last_step[0] = -learning_rate * gr[0] + momentum * last_step[0]
+			last_step[1] = -learning_rate * gr[1] + momentum * last_step[1]
+
+			iters += 1
 
 	for j in range(5):
 		for i in range(n):

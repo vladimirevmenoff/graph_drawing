@@ -1,18 +1,37 @@
 from graphics import *
 from springs import spring
 
+WIDTH = 800
+HEIGHT = 800
+
 def main():
-	win = GraphWin("My Circle", 800, 800)
+
+
+	win = GraphWin("My Graph", WIDTH, HEIGHT)
 
 	g = [[1, 2], [0, 2], [0, 1, 3, 4], [2], [2, 5], [4]]
 	coords = spring(g)
 
-	for i in range(len(coords)):
-		coords[i][0] += 20
-		coords[i][1] += 20 
+	# adjust image
+	u = max([_[1] for _ in coords])
+	d = min([_[1] for _ in coords])
 
-		coords[i][0] *= 20
-		coords[i][1] *= 20
+	l = max([_[0] for _ in coords])
+	r = min([_[0] for _ in coords])
+
+	for i in range(len(coords)):
+		coords[i][0] -= l
+		coords[i][1] -= d
+
+		coords[i][0] /= (r - l)
+		coords[i][1] /= (u - d)
+
+		coords[i][0] *= (WIDTH - 10)
+		coords[i][1] *= (HEIGHT - 10)
+
+		coords[i][0] += 5
+		coords[i][1] += 5
+
 
 	for i in coords:
 		c = Circle(Point(i[0], i[1]), 1)
