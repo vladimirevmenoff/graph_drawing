@@ -1,5 +1,6 @@
 from graphics import *
 from springs import spring
+from graph_generator import generate_graph
 
 WIDTH = 800
 HEIGHT = 800
@@ -9,7 +10,7 @@ def main():
 
 	win = GraphWin("My Graph", WIDTH, HEIGHT)
 
-	g = [[1, 2], [0, 2], [0, 1, 3, 4], [2], [2, 5], [4]]
+	g = generate_graph(12, 17)
 	coords = spring(g)
 
 	# adjust image
