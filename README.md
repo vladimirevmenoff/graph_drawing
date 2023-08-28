@@ -1,6 +1,8 @@
 # graph_drawing
 
-This is my implementation of euristic graph drawing algoritm with graphic visualization.
+## About
+
+This project is my implementation of Kamada-Kawai graph drawing algorithm
 
 ## Theory
 
