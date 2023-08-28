@@ -22,3 +22,12 @@ Let's sum this energy for all unordere pairs of vericies, and get the total ener
 ## Programming
 
 This project is implemented in modular programming style. It has a module generate_graph, that generates a graph in $O(n^2)$ time complexity. And a module springs that find's an optimal layout. And a governence module main, that combines it all together.
+
+## Installing
+
+Well, this repository works out of the box for different platforms(Yes i am a genius). So no need for containerezation. 
+Just do
+
+```bash
+git clone https://github.com/vladimirevmenoff/graph_drawing
+```
