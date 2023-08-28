@@ -18,3 +18,7 @@ $$k_{i, j} \cdot (||p_{i} - p_{j}|| - l_{i,j}) ^ {2}$$
 Let's sum this energy for all unordere pairs of vericies, and get the total energy of the system. Now we just need to minimize the total energy. Some say, Newton-Raphson method is applicable here. But i find it better to use gradient desend method. 
 
 ![image](https://github.com/vladimirevmenoff/graph_drawing/assets/58567711/3571a9a4-f285-4852-a0be-508e8de98455)
+
+## Programming
+
+This project is implemented in modular programming style. It has a module generate_graph, that generates a graph in $O(n^2)$ time complexity. And a module springs that find's an optimal layout. And a governence module main, that combines it all together.
